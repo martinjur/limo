@@ -1,3 +1,7 @@
+# Limo: README
+
+Limo is fork of Limonade. All content below is aplicable. Instead of 'limonade' we now use 'limo'.
+
 # Limonade: README
 
 Limonade is a PHP micro framework for rapid web development and prototyping.

@@ -1,5 +1,9 @@
 [Changes since last revision]
 
+[2021-11-29: VERSION 0.6.0]
+Started mitigating errors on new versions of PHP
+
+
 [2010-10-16: VERSION 0.5.0]
 
 Fix several bugs and add many new features and tests. See [git logs](http://github.com/sofadesign/limonade/commits/master) and [lighthouse reports](http://sofadesign.lighthouseapp.com/projects/29612-limonade/tickets?q=state%3Aclosed&filter=state%3Aclosed)for a complete overview.

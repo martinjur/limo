@@ -1,32 +1,41 @@
 <?php
-require_once dirname(dirname(dirname(__FILE__))).'/lib/limonade.php';
 
+require_once dirname(__FILE__, 3) . '/lib/limo.php';
 
 dispatch('/', 'index');
-  function index()
-  {
+function index()
+{
     $o = "HELLO";
-    if(array_key_exists('sort', $_GET)) $o .= " | sort=" . $_GET['sort'];
+    if (array_key_exists('sort', $_GET)) {
+        $o .= " | sort=" . $_GET['sort'];
+    }
+
     return $o;
-  }
-  
+}
+
 dispatch('/books/:lang', 'books');
-  function books()
-  {
+function books()
+{
     $o = "lang=" . params('lang');
-    if(array_key_exists('sort', $_GET)) $o .= " | sort=" . $_GET['sort'];
-    if(array_key_exists('page', $_GET)) $o .= " | page=" . $_GET['page'];
+    if (array_key_exists('sort', $_GET)) {
+        $o .= " | sort=" . $_GET['sort'];
+    }
+    if (array_key_exists('page', $_GET)) {
+        $o .= " | page=" . $_GET['page'];
+    }
+
     return $o;
-  }
+}
 
 dispatch_post('/books', 'create');
-  function create()
-  {
+function create()
+{
     $o = '';
-    if(array_key_exists('title', $_POST)) $o = "title=" . $_POST['title'];
-    return $o;
-  }
-  
+    if (array_key_exists('title', $_POST)) {
+        $o = "title=" . $_POST['title'];
+    }
 
+    return $o;
+}
 
 run();

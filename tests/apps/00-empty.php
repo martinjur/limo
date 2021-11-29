@@ -1,1 +1,2 @@
-<?php header('Content-type: text/html');
+<?php
+header('Content-type: text/html');

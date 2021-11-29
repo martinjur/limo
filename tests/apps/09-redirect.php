@@ -1,25 +1,25 @@
 <?php
-require_once dirname(dirname(dirname(__FILE__))).'/lib/limonade.php';
+
+require_once dirname(__FILE__, 3) . '/lib/limo.php';
 
 dispatch('/', 'index');
-  function index()
-	{
-		$pairs = explode('&', $_SERVER['QUERY_STRING']);
-		$params = array();
-		foreach($pairs as $pair)
-		{
-			$keyAndValue = explode('=', $pair);
-			$params[$keyAndValue[0]] = count($keyAndValue) > 1 ? $keyAndValue[1] : '';
-		}
-		array_shift($params);
+function index()
+{
+    $pairs = explode('&', $_SERVER['QUERY_STRING']);
+    $params = [];
+    foreach ($pairs as $pair) {
+        $keyAndValue = explode('=', $pair);
+        $params[$keyAndValue[0]] = count($keyAndValue) > 1 ? $keyAndValue[1] : '';
+    }
+    array_shift($params);
 
-		return redirect_to('/redirected', $params);
-  }
-  
+    redirect_to('/redirected', $params);
+}
+
 dispatch('/redirected', 'redirected');
-  function redirected()
-	{
-		print $_SERVER['QUERY_STRING'];
-  }
+function redirected()
+{
+    print $_SERVER['QUERY_STRING'];
+}
 
 run();

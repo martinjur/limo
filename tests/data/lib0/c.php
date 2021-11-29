@@ -1,3 +1,3 @@
 <?php
-define('TEST_LIB_C', true);
-?>
+
+const TEST_LIB_C = true;

@@ -1,9 +1,13 @@
 {
-    "name": "sofadesign/limonade",
-    "description": "a PHP micro-framework",
-    "homepage": "https://github.com/sofadesign/limonade",
-    "keywords": ["microframework"],
-    "autoload": {
-        "files": ["lib/limonade.php"]
-    }
+  "name": "martinjur/limo",
+  "description": "a PHP micro-framework",
+  "homepage": "https://github.com/martinjur/limo",
+  "keywords": [
+    "microframework"
+  ],
+  "autoload": {
+    "files": [
+      "lib/limo.php"
+    ]
+  }
 }
