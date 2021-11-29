@@ -863,7 +863,7 @@ function error_type($num = null)
  *
  * @param string $errno
  *
- * @return int
+ * @return int|string|string[]
  */
 function error_http_status($errno)
 {
@@ -1034,7 +1034,7 @@ function request_uri($env = null)
 
         // Is there a PATH_INFO variable?
         // Note: some servers seem to have trouble with getenv() so we'll test it two ways
-        if (trim($path_info, '/') !== '' && $path_info !== "/" . $app_file) {
+        if ($path_info !== "/" . $app_file && trim($path_info, '/') !== '') {
             if (strpos($path_info, '&') !== 0) {
                 # exclude GET params
                 $params = explode('&', $path_info);
@@ -1427,7 +1427,7 @@ function render($content_or_func, $layout = '', $locals = [])
         $content = ob_get_clean();
     } elseif (file_exists($view_path)) {
         ob_start();
-        extract($vars);
+        extract($vars, EXTR_OVERWRITE);
         include $view_path;
         $content = ob_get_clean();
     } elseif (substr_count($content_or_function, '%') !== count($vars)) {
@@ -1582,7 +1582,7 @@ function json($data, $json_option = 0)
  * @param string $filename
  * @param string $return
  *
- * @return mixed number of bytes delivered or file output if $return = true
+ * @return string|int|bool number of bytes delivered or file output if $return = true
  */
 function render_file($filename, $return = false)
 {
@@ -1830,7 +1830,7 @@ function content_for($name = null, $content = null)
     if (is_null($name) && !is_null($_name)) {
         set($_name, ob_get_clean());
         $_name = null;
-    } elseif (!is_null($name) && !isset($content)) {
+    } elseif (!isset($content) && !is_null($name)) {
         $_name = $name;
         ob_start();
     } elseif (isset($name, $content)) {
@@ -2586,7 +2586,7 @@ function file_is_text($filename)
  *
  * @param string $filename
  *
- * @return void
+ * @return null|bool
  */
 function file_is_binary($filename)
 {
@@ -2598,7 +2598,7 @@ function file_is_binary($filename)
 /**
  * Return or output file content
  *
- * @return    string, int
+ * @return    string|int|bool
  *
  **/
 
@@ -2698,11 +2698,12 @@ function filter_var_url($str)
  * @param string $string
  * @param string $quote_style , one of: ENT_COMPAT, ENT_QUOTES, ENT_NOQUOTES
  *
- * @return the decoded string
+ * @return string the decoded string
  */
 function limo_htmlspecialchars_decode($string, $quote_style = ENT_COMPAT)
 {
     $table = array_flip(get_html_translation_table(HTML_SPECIALCHARS, $quote_style));
+
     if ($quote_style === ENT_QUOTES) {
         $table['&#039;'] = $table['&#39;'] = '\'';
     }

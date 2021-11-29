@@ -116,7 +116,7 @@ run();
 
 function html_my_layout($vars)
 {
-    extract($vars); ?>
+    extract($vars, EXTR_OVERWRITE); ?>
     <html>
     <head>
         <title>Limo first example</title>
@@ -143,7 +143,7 @@ function html_my_layout($vars)
 
 function html_welcome($vars)
 {
-    extract($vars); ?>
+    extract($vars, EXTR_OVERWRITE); ?>
     <h3>Hello <?php
         echo $name ?>!</h3>
     <p><a href="<?php

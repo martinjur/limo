@@ -120,7 +120,7 @@ run();
 
 function html_my_layout($vars)
 {
-    extract($vars); ?>
+    extract($vars, EXTR_OVERWRITE); ?>
     <html>
     <head>
         <title>Limo second example</title>

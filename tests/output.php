@@ -164,7 +164,7 @@ end_test_case();
 
 function _test_output_html_my_layout($vars)
 {
-    extract($vars); ?>
+    extract($vars, EXTR_OVERWRITE); ?>
     <html>
     <head>
         <title>Page title</title>
@@ -179,7 +179,7 @@ function _test_output_html_my_layout($vars)
 
 function _test_output_html_hello_world($vars)
 {
-    extract($vars); ?>
+    extract($vars, EXTR_OVERWRITE); ?>
     <p>Hello World</p>
     <?php
     if (isset($lorem)): ?><p><?php

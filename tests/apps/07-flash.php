@@ -56,7 +56,7 @@ run();
 
 function html_default_layout($vars)
 {
-    extract($vars); ?>
+    extract($vars, EXTR_OVERWRITE); ?>
     <!DOCTYPE html>
     <html lang="en">
     <head>

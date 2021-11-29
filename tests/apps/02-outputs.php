@@ -72,7 +72,7 @@ run();
 
 function html_default_layout($vars)
 {
-    extract($vars); ?>
+    extract($vars, EXTR_OVERWRITE); ?>
     <html>
 <body>
 <?php
@@ -86,7 +86,7 @@ if (isset($side)) {
 
 function html_default_view($vars)
 {
-    extract($vars); ?>
+    extract($vars, EXTR_OVERWRITE); ?>
     <p>my content</p>
     <?php
     content_for('side'); ?>

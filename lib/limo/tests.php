@@ -169,7 +169,7 @@ function test_case_describe($msg = null)
  * Returns all user test case functions
  *
  * @access private
- * @return void
+ * @return array
  */
 function test_case_all_func()
 {
