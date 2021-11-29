@@ -5,6 +5,7 @@
   "keywords": [
     "microframework"
   ],
+  "minimum-stability": "stable",
   "autoload": {
     "files": [
       "lib/limo.php"
